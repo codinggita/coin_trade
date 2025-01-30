@@ -7,6 +7,8 @@ const connectDB = require('./config/db');
 const opinionTradeRoutes = require('./routes/opinionTradeRoutes');
 const gameTradeRoutes = require('./routes/gameTradeRoutes');
 const stockMarketTradeRoutes = require('./routes/stockMarketTradeRoutes');
+const walletRoutes = require("./routes/walletRoutes");
+
 
 dotenv.config();
 connectDB();
@@ -19,6 +21,7 @@ app.use(bodyParser.json());
 app.use('/api/opinion-trade', opinionTradeRoutes);
 app.use('/api/game-trade', gameTradeRoutes);
 app.use('/api/stock-market-trade', stockMarketTradeRoutes);
+app.use("/api/wallet", walletRoutes);
 
 app.get('/', (req, res) => {
   res.send('CoinTrade API is running');
